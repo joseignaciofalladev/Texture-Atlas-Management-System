@@ -9,8 +9,6 @@
 // - Un atlas = una unidad de render
 // - Agrupar por uso, distancia y material
 // - Nunca mezclar ciclos de vida incompatibles
-//
-// ============================================================
 
 #include "TXTextureAtlasSystem.h"
 
@@ -21,19 +19,13 @@
 static const uint32_t ATLAS_PADDING_PIXELS = 4;
 static const uint32_t ATLAS_MAX_SIZE       = 2048;
 
-// ------------------------------------------------------------
 // Utilidades internas
-// ------------------------------------------------------------
-
 static uint32_t Align(uint32_t value, uint32_t alignment)
 {
     return (value + alignment - 1) & ~(alignment - 1);
 }
 
-// ------------------------------------------------------------
 // Constructor
-// ------------------------------------------------------------
-
 TXTextureAtlasSystem::TXTextureAtlasSystem()
 {
     m_Atlases.reserve(32);
@@ -211,4 +203,5 @@ void TXTextureAtlasSystem::Shutdown()
 
     m_Atlases.clear();
     m_CurrentAtlas = nullptr;
+
 }
