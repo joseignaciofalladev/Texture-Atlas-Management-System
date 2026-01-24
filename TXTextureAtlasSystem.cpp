@@ -12,10 +12,7 @@
 
 #include "TXTextureAtlasSystem.h"
 
-// ------------------------------------------------------------
 // Configuración base
-// ------------------------------------------------------------
-
 static const uint32_t ATLAS_PADDING_PIXELS = 4;
 static const uint32_t ATLAS_MAX_SIZE       = 2048;
 
@@ -31,10 +28,7 @@ TXTextureAtlasSystem::TXTextureAtlasSystem()
     m_Atlases.reserve(32);
 }
 
-// ------------------------------------------------------------
 // Creación de un nuevo atlas
-// ------------------------------------------------------------
-
 TXTextureAtlas* TXTextureAtlasSystem::CreateAtlas(
     uint32_t width,
     uint32_t height,
@@ -205,3 +199,4 @@ void TXTextureAtlasSystem::Shutdown()
     m_CurrentAtlas = nullptr;
 
 }
+
