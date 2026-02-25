@@ -1,4 +1,3 @@
-// ============================================================
 // Texture Atlas Management System
 // Objetivo:
 // - Reducir cambios de estado de GPU
@@ -63,10 +62,7 @@ TXTextureAtlas* TXTextureAtlasSystem::CreateAtlas(
     return atlas;
 }
 
-// ------------------------------------------------------------
 // Inserción de una textura en el atlas
-// ------------------------------------------------------------
-
 TXAtlasEntry* TXTextureAtlasSystem::InsertTexture(
     TXTextureAtlas* atlas,
     uint32_t texWidth,
@@ -129,10 +125,7 @@ TXAtlasEntry* TXTextureAtlasSystem::InsertTexture(
     return nullptr;
 }
 
-// ------------------------------------------------------------
 // Enlace del atlas para render
-// ------------------------------------------------------------
-
 void TXTextureAtlasSystem::BindAtlas(TXTextureAtlas* atlas)
 {
     if (!atlas || atlas == m_CurrentAtlas)
@@ -142,10 +135,7 @@ void TXTextureAtlasSystem::BindAtlas(TXTextureAtlas* atlas)
     m_CurrentAtlas = atlas;
 }
 
-// ------------------------------------------------------------
 // Obtención de coordenadas UV normalizadas
-// ------------------------------------------------------------
-
 TXUVRect TXTextureAtlasSystem::GetUV(const TXTextureAtlas* atlas,
                                      const TXAtlasEntry& entry) const
 {
@@ -159,10 +149,7 @@ TXUVRect TXTextureAtlasSystem::GetUV(const TXTextureAtlas* atlas,
     return uv;
 }
 
-// ------------------------------------------------------------
 // Limpieza de atlases no usados (PASS + LCR friendly)
-// ------------------------------------------------------------
-
 void TXTextureAtlasSystem::GarbageCollect()
 {
     for (size_t i = 0; i < m_Atlases.size();)
@@ -183,10 +170,7 @@ void TXTextureAtlasSystem::GarbageCollect()
     }
 }
 
-// ------------------------------------------------------------
 // Shutdown
-// ------------------------------------------------------------
-
 void TXTextureAtlasSystem::Shutdown()
 {
     for (TXTextureAtlas* atlas : m_Atlases)
@@ -199,4 +183,5 @@ void TXTextureAtlasSystem::Shutdown()
     m_CurrentAtlas = nullptr;
 
 }
+
 
