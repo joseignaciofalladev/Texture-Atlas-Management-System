@@ -121,7 +121,6 @@ TXAtlasEntry* TXTextureAtlasSystem::InsertTexture(
             return &atlas->UsedEntries.back();
         }
     }
-
     return nullptr;
 }
 
@@ -130,7 +129,6 @@ void TXTextureAtlasSystem::BindAtlas(TXTextureAtlas* atlas)
 {
     if (!atlas || atlas == m_CurrentAtlas)
         return;
-
     GPU_BindTexture(atlas->GPUHandle);
     m_CurrentAtlas = atlas;
 }
@@ -162,26 +160,19 @@ void TXTextureAtlasSystem::GarbageCollect()
             delete atlas;
 
             m_Atlases.erase(m_Atlases.begin() + i);
-        }
-        else
-        {
+        } else {
             ++i;
         }
     }
 }
 
 // Shutdown
-void TXTextureAtlasSystem::Shutdown()
-{
+void TXTextureAtlasSystem::Shutdown(){
     for (TXTextureAtlas* atlas : m_Atlases)
     {
         ReleaseGPUTexture(atlas->GPUHandle);
         delete atlas;
     }
-
     m_Atlases.clear();
     m_CurrentAtlas = nullptr;
-
 }
-
-
